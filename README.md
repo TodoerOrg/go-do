@@ -20,3 +20,5 @@ attach a bash shell to the container
 stop a running container
 > docker stop <CONTAINER_ID>
 
+start a golang server inside a docker container 
+> docker run --publish 8080:8080 --name docker-server-test --rm my-golang-app
