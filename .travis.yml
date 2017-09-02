@@ -1,5 +1,8 @@
 sudo: required
 services:
   - docker
+language: go
+before_script:
+  cd tests/integration/api/
 script:
-- bash ./tests/integration/api/test.sh
+- bash ./test.sh
