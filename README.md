@@ -22,3 +22,12 @@ stop a running container
 
 start a golang server inside a docker container 
 > docker run --publish 8080:8080 --name docker-server-test --rm my-golang-app
+
+# docker compose experiments
+
+based on the learnings from:
+
+https://hharnisc.github.io/2016/06/19/integration-testing-with-docker-compose.html
+
+we can create a docker-compose that describes api integration testing setup with docker containers.
+
