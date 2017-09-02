@@ -3,6 +3,7 @@ services:
   - docker
 language: go
 before_script:
-  cd tests/integration/api/
+  - cd tests/integration/api/
+  - chmod +x test.sh
 script:
 - bash ./test.sh
