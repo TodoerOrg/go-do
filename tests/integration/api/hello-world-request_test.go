@@ -5,7 +5,10 @@ import (
 	"testing"
 )
 
-const port = ":8080"
+const (
+	port = ":8080"
+	host = "todoer-server"
+)
 
 func checkStatus(t *testing.T, r *http.Response) {
 	if r.StatusCode != http.StatusOK {
@@ -14,7 +17,7 @@ func checkStatus(t *testing.T, r *http.Response) {
 }
 
 func TestHelloWorldRequest(t *testing.T) {
-	url := "http://localhost:8080"
+	url := "http://" + host + port
 	resp, err := http.Get(url)
 
 	if err != nil {
