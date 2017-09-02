@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  api-integration-tester:
+    build: .
+    links:
+      - todoer-server
+    depends_on:
+      - todoer-server
+    command: ["./utils/wait-for-it/wait-for-it.sh", "todoer-server:8080", "--", "go", "test"]
+  todoer-server:
+    build: ../../..
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
