@@ -4,17 +4,15 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"strconv"
 	"sync"
 )
 
-const port = 8080
+const port = ":8080"
 
 func main() {
 
-	fmt.Printf("Started server at http://localhost%v.\n", port)
 	http.Handle("/", NewServer())
-	log.Fatal(http.ListenAndServe(":"+strconv.Itoa(port), nil))
+	log.Fatal(http.ListenAndServe(port, nil))
 
 }
 
