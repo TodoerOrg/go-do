@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+language: go
+before_script:
+  - cd tests/integration/api/
+  - chmod +x test.sh
+  - chmod +x test.sh ./utils/wait-for-it/wait-for-it.sh
+script:
+- bash ./test.sh
