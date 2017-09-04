@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 	"sync"
+
+	"github.com/todoer-org/todoer/src/uuid"
 )
 
 const port = ":8080"
@@ -39,5 +41,7 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	s.hitCount = s.hitCount + 1
 	s.mu.RUnlock()
 
-	fmt.Fprintf(w, "Hello, world! You have called me %d times.\n", s.hitCount)
+	uuid := uuid.NewUUID()
+
+	fmt.Fprintf(w, "Hello, world! You have called me %d times %s.\n", s.hitCount, uuid)
 }
